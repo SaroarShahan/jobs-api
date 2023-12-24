@@ -9,7 +9,7 @@ const connectDB = require('./configs/connectDB');
 const errorHandler = require('./middleware/errorHandler');
 const notFoundHandler = require('./middleware/notFoundHandler');
 const authRouter = require('./routes/authRouter');
-const userRouter = require('./routes/userRouter');
+const jobRouter = require('./routes/jobRouter');
 
 const app = express();
 
@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/users', userRouter);
+app.use('/api/v1/jobs', jobRouter);
 
 // Error handler
 app.use(errorHandler);
