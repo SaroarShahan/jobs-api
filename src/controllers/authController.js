@@ -3,11 +3,15 @@ const { BadRequestError, UnauthenticatedError } = require('../errors');
 const { StatusCodes } = require('../constants/StatusCodes');
 
 exports.register = async (req, res) => {
-  const user = await User.create(req.body);
+  const { name, email } = await User.create(req.body);
 
   const token = user.createJWT();
 
-  res.status(StatusCodes.CREATED).json({ user: { name: user.name }, token });
+  res.status(StatusCodes.CREATED).json({
+    success: true,
+    message: 'Registration successfull',
+    user: { name, email },
+  });
 };
 
 exports.login = async (req, res) => {
