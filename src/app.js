@@ -8,6 +8,7 @@ const morgan = require('morgan');
 const connectDB = require('./configs/connectDB');
 const errorHandler = require('./middleware/errorHandler');
 const notFoundHandler = require('./middleware/notFoundHandler');
+const authMiddleware = require('./middleware/authencation');
 const authRouter = require('./routes/authRouter');
 const jobRouter = require('./routes/jobRouter');
 
@@ -21,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/jobs', jobRouter);
+app.use('/api/v1/jobs', authMiddleware, jobRouter);
 
 // Error handler
 app.use(errorHandler);
