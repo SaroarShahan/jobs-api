@@ -4,5 +4,5 @@ exports.StatusCodes = {
   BAD_REQUEST: 400,
   UNAUTHORIZED: 401,
   NOT_FOUND: 404,
-  internalServerError: 500,
+  INTERNAL_SERVER_ERROR: 500,
 };
