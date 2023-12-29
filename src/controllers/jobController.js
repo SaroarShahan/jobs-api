@@ -4,7 +4,7 @@ const { StatusCodes } = require('../constants/StatusCodes');
 exports.getAllJobs = async (req, res) => {
   const jobs = await Job.find({ createdBy: req.user.userId }).sort('createdAt');
 
-  res.status(StatusCodes.OKUCCESS).json({
+  res.status(StatusCodes.OK).json({
     success: true,
     message: 'Get all jobs',
     data: {
