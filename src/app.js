@@ -24,9 +24,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', authMiddleware, jobRouter);
 
-// Error handler
-app.use(errorHandler);
 app.use(notFoundHandler);
+app.use(errorHandler);
 
 // Connect to Database and Start Server
 const start = async () => {
